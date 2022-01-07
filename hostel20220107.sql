@@ -13,12 +13,12 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- 导出 template 的数据库结构
+-- 导出 hostel 的数据库结构
 DROP DATABASE IF EXISTS `hostel`;
 CREATE DATABASE IF NOT EXISTS `hostel` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_croatian_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `hostel`;
 
--- 导出  表 template.t_department 结构
+-- 导出  表 hostel.t_department 结构
 DROP TABLE IF EXISTS `t_department`;
 CREATE TABLE IF NOT EXISTS `t_department` (
   `id` bigint unsigned NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `t_department` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_department 的数据：~15 rows (大约)
+-- 正在导出表  hostel.t_department 的数据：~15 rows (大约)
 DELETE FROM `t_department`;
 /*!40000 ALTER TABLE `t_department` DISABLE KEYS */;
 INSERT INTO `t_department` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `parent_id`, `sort_order`, `status`, `title`, `is_parent`) VALUES
@@ -56,7 +56,7 @@ INSERT INTO `t_department` (`id`, `create_by`, `create_time`, `del_flag`, `updat
 	(1464487807572643841, 'admin', '2021-11-27 14:54:37', 0, 'admin', '2021-11-27 14:54:37', 1464487379074158593, 2.00, 0, '产品应用部', b'0');
 /*!40000 ALTER TABLE `t_department` ENABLE KEYS */;
 
--- 导出  表 template.t_department_header 结构
+-- 导出  表 hostel.t_department_header 结构
 DROP TABLE IF EXISTS `t_department_header`;
 CREATE TABLE IF NOT EXISTS `t_department_header` (
   `id` bigint unsigned NOT NULL,
@@ -71,12 +71,12 @@ CREATE TABLE IF NOT EXISTS `t_department_header` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_department_header 的数据：~0 rows (大约)
+-- 正在导出表  hostel.t_department_header 的数据：~0 rows (大约)
 DELETE FROM `t_department_header`;
 /*!40000 ALTER TABLE `t_department_header` DISABLE KEYS */;
 /*!40000 ALTER TABLE `t_department_header` ENABLE KEYS */;
 
--- 导出  表 template.t_dict 结构
+-- 导出  表 hostel.t_dict 结构
 DROP TABLE IF EXISTS `t_dict`;
 CREATE TABLE IF NOT EXISTS `t_dict` (
   `id` bigint unsigned NOT NULL,
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `t_dict` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_dict 的数据：~5 rows (大约)
+-- 正在导出表  hostel.t_dict 的数据：~4 rows (大约)
 DELETE FROM `t_dict`;
 /*!40000 ALTER TABLE `t_dict` DISABLE KEYS */;
 INSERT INTO `t_dict` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `description`, `title`, `type`, `sort_order`) VALUES
@@ -102,7 +102,7 @@ INSERT INTO `t_dict` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`,
 	(81843858882695168, 'admin', '2018-12-03 10:30:38', 0, 'admin', '2018-12-03 10:30:49', '', '优先级', 'priority', 5.00);
 /*!40000 ALTER TABLE `t_dict` ENABLE KEYS */;
 
--- 导出  表 template.t_dict_data 结构
+-- 导出  表 hostel.t_dict_data 结构
 DROP TABLE IF EXISTS `t_dict_data`;
 CREATE TABLE IF NOT EXISTS `t_dict_data` (
   `id` bigint unsigned NOT NULL,
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `t_dict_data` (
   KEY `sort_order` (`sort_order`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_dict_data 的数据：~23 rows (大约)
+-- 正在导出表  hostel.t_dict_data 的数据：~23 rows (大约)
 DELETE FROM `t_dict_data`;
 /*!40000 ALTER TABLE `t_dict_data` DISABLE KEYS */;
 INSERT INTO `t_dict_data` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `description`, `dict_id`, `sort_order`, `status`, `title`, `value`) VALUES
@@ -150,7 +150,150 @@ INSERT INTO `t_dict_data` (`id`, `create_by`, `create_time`, `del_flag`, `update
 	(81844100705292288, 'admin', '2018-12-03 10:31:35', 0, 'admin', '2018-12-03 10:31:35', '', 81843858882695168, 2.00, 0, '紧急', '2');
 /*!40000 ALTER TABLE `t_dict_data` ENABLE KEYS */;
 
--- 导出  表 template.t_file 结构
+-- 导出  表 hostel.t_dormitory 结构
+DROP TABLE IF EXISTS `t_dormitory`;
+CREATE TABLE IF NOT EXISTS `t_dormitory` (
+  `id` varchar(255) COLLATE utf8_croatian_ci NOT NULL,
+  `create_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `create_time` datetime(6) DEFAULT NULL,
+  `del_flag` int DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `update_time` datetime(6) DEFAULT NULL,
+  `area_size` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `breakfast` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `price` decimal(19,2) DEFAULT NULL,
+  `remark` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_croatian_ci;
+
+-- 正在导出表  hostel.t_dormitory 的数据：~1 rows (大约)
+DELETE FROM `t_dormitory`;
+/*!40000 ALTER TABLE `t_dormitory` DISABLE KEYS */;
+INSERT INTO `t_dormitory` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `area_size`, `breakfast`, `price`, `remark`, `title`, `type`) VALUES
+	('1479267940816785409', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '102', '不含早餐', 600.00, '', '1幢101', '单人间'),
+	('1479267940816785410', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '102', '不含早餐', 600.00, '', '1幢101', '单人间'),
+	('1479267940816785411', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '100', '不含早餐', 600.00, '', '1幢102', '单人间'),
+	('1479267940816785412', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '106', '不含早餐', 600.00, '', '1幢103', '单人间'),
+	('1479267940816785413', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '108', '不含早餐', 600.00, '', '1幢104', '单人间'),
+	('1479267940816785414', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '109', '不含早餐', 600.00, '', '1幢105', '单人间'),
+	('1479267940816785415', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '107', '不含早餐', 600.00, '', '1幢106', '单人间'),
+	('1479267940816785416', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '104', '不含早餐', 600.00, '', '1幢107', '单人间'),
+	('1479267940816785417', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '105', '不含早餐', 600.00, '', '1幢108', '单人间'),
+	('1479267940816785418', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '102', '不含早餐', 600.00, '', '1幢109', '单人间'),
+	('1479267940816785419', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '101', '不含早餐', 600.00, '', '1幢201', '单人间'),
+	('1479267940816785420', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '102', '不含早餐', 600.00, '', '1幢202', '单人间'),
+	('1479267940816785421', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '103', '不含早餐', 600.00, '', '1幢203', '单人间'),
+	('1479267940816785422', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '102', '含双早', 600.00, '', '1幢204', '双人间'),
+	('1479267940816785423', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '100', '含双早', 600.00, '', '1幢205', '双人间'),
+	('1479267940816785424', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '106', '含双早', 600.00, '', '1幢206', '双人间'),
+	('1479267940816785425', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '108', '含双早', 600.00, '', '1幢207', '双人间'),
+	('1479267940816785426', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '109', '含双早', 600.00, '', '1幢208', '双人间'),
+	('1479267940816785427', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '107', '含双早', 600.00, '', '1幢209', '双人间'),
+	('1479267940816785428', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '104', '含双早', 600.00, '', '1幢301', '双人间'),
+	('1479267940816785429', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '105', '含双早', 600.00, '', '1幢302', '双人间'),
+	('1479267940816785430', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '102', '含双早', 600.00, '', '1幢303', '双人间'),
+	('1479267940816785431', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '101', '含双早', 600.00, '', '1幢304', '双人间'),
+	('1479267940816785432', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '102', '含双早', 600.00, '', '1幢305', '双人间'),
+	('1479267940816785433', 'admin', '2022-01-07 09:45:35.229000', 0, NULL, NULL, '103', '含双早', 600.00, '', '1幢306', '双人间');
+/*!40000 ALTER TABLE `t_dormitory` ENABLE KEYS */;
+
+-- 导出  表 hostel.t_dormitory_discuss 结构
+DROP TABLE IF EXISTS `t_dormitory_discuss`;
+CREATE TABLE IF NOT EXISTS `t_dormitory_discuss` (
+  `id` varchar(255) COLLATE utf8_croatian_ci NOT NULL,
+  `create_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `create_time` datetime(6) DEFAULT NULL,
+  `del_flag` int DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `update_time` datetime(6) DEFAULT NULL,
+  `discuss_time` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `dormitory_id` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `reply` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `user_name` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `content` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_croatian_ci;
+
+-- 正在导出表  hostel.t_dormitory_discuss 的数据：~0 rows (大约)
+DELETE FROM `t_dormitory_discuss`;
+/*!40000 ALTER TABLE `t_dormitory_discuss` DISABLE KEYS */;
+INSERT INTO `t_dormitory_discuss` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `discuss_time`, `dormitory_id`, `reply`, `user_id`, `user_name`, `content`) VALUES
+	('1479273271722643457', 'admin', '2022-01-07 10:06:46.279000', 0, NULL, NULL, '2022-01-07 10:06:46', '1479267940816785409', '', '682265633886208', '管理员', '这个宿舍很好！');
+/*!40000 ALTER TABLE `t_dormitory_discuss` ENABLE KEYS */;
+
+-- 导出  表 hostel.t_dormitory_news 结构
+DROP TABLE IF EXISTS `t_dormitory_news`;
+CREATE TABLE IF NOT EXISTS `t_dormitory_news` (
+  `id` varchar(255) COLLATE utf8_croatian_ci NOT NULL,
+  `create_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `create_time` datetime(6) DEFAULT NULL,
+  `del_flag` int DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `update_time` datetime(6) DEFAULT NULL,
+  `is_public` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `is_top` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `n_sort` int DEFAULT NULL,
+  `new_describe` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `new_title` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `period_time` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `photo` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `relate_service_id` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `relate_service_name` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `department_id` varchar(50) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `department_title` varchar(50) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `nursing_organization_id` varchar(50) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `nursing_organization_name` varchar(50) COLLATE utf8_croatian_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_croatian_ci;
+
+-- 正在导出表  hostel.t_dormitory_news 的数据：~0 rows (大约)
+DELETE FROM `t_dormitory_news`;
+/*!40000 ALTER TABLE `t_dormitory_news` DISABLE KEYS */;
+INSERT INTO `t_dormitory_news` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `is_public`, `is_top`, `n_sort`, `new_describe`, `new_title`, `period_time`, `photo`, `relate_service_id`, `relate_service_name`, `department_id`, `department_title`, `nursing_organization_id`, `nursing_organization_name`) VALUES
+	('1471384104523141121', 'lc_lgj', '2021-12-16 15:38:02.181000', 0, NULL, NULL, 'yes', '', 300, '鹿城区-动态咨询', '鹿城区-动态咨询', '2021-12-08 00:00:00 - 2022-01-22 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1464488676275916800', '', '', '', '', '1451359273400537089', '鹿城区'),
+	('1471393441362612225', 'test_lo', '2021-12-16 16:15:08.265000', 0, NULL, NULL, 'yes', '', 100, '菱藕社区-动态', '菱藕社区-动态', '2021-12-06 00:00:00 - 2022-01-20 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1464490047234510849', '', '', '', '', '1434525343615684609', '菱藕社区'),
+	('1471398754098745345', 'test_nf', '2021-12-16 16:36:14.949000', 0, 'admin', '2021-12-24 23:32:36.806000', 'yes', 'no', 100, '松台街道-动态', '松台街道-动态', '2021-12-07 00:00:00 - 2022-01-21 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1464500645229891584', '', '', '', '', '1470021528195305472', '松台街道_第三方养老机构'),
+	('1471442629454598144', 'test_gg', '2021-12-16 19:30:35.623000', 0, 'test_gg', '2021-12-17 08:51:30.365000', 'yes', 'yes', 100, '桂柑社区-动态', '桂柑社区-动态', '2021-12-16 00:00:00 - 2022-01-21 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1465143010978304000', '', '', '', '', '1434525517255675905', '桂柑社区'),
+	('1471645556723027968', 'test_qnf', '2021-12-17 08:56:57.000000', 0, 'test_nf', '2021-12-17 11:24:00.081000', 'yes', 'yes', 100, '庆年坊社区-玻璃清洗', '庆年坊社区-玻璃清洗', '2021-12-17 00:00:00 - 2022-01-21 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1471682488416997377', '', '', '', '', '1434525684193169409', '庆年坊社区'),
+	('1471645650692214785', 'test_qnf', '2021-12-17 08:57:19.000000', 0, 'admin', '2021-12-18 14:01:14.417000', 'yes', 'yes', 100, '庆年坊社区-免费鸡蛋', '庆年坊社区-免费鸡蛋', '2021-12-06 00:00:00 - 2022-01-28 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1471682314084945920', '', '', '', '', '1434525684193169409', '庆年坊社区'),
+	('1471723157265190912', 'test_lo_lrst', '2021-12-17 14:05:18.659000', 0, 'test_lo_lrst', '2021-12-17 14:08:15.025000', 'yes', 'yes', 100, '菱藕社区老人食堂-免费馒头', '菱藕社区老人食堂-免费馒头', '2021-12-17 00:00:00 - 2022-01-21 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1471723151699349505', '', '', '', '', '1471689451628531713', '菱藕社区-老人食堂'),
+	('1472087542533853185', 'test_laj', '2021-12-18 14:13:14.887000', 0, 'admin', '2021-12-24 23:32:41.337000', 'yes', 'yes', 100, '鹿城区老干局-赏花', '鹿城区老干局-赏花', '2021-12-18 00:00:00 - 2022-01-29 00:00:00', 'https://data.wzcable.com:9004/app/file/view/1472087485180940289', '', '', '', '', '1472086307860779009', '鹿城区老干局'),
+	('1474551902455861249', 'qmm', '2021-12-25 09:25:44.089000', 0, NULL, NULL, 'yes', '', 300, '<p><strong>11111</strong></p><p><strong><img src="http://img.baidu.com/hi/jx2/j_0017.gif"/></strong></p>', '111', '2021-12-25 00:00:00 - 2022-01-21 00:00:00', '', '', '', '', '', '40322777781112832', '浙江省'),
+	('1474565620946309120', 'admin', '2021-12-25 10:20:14.000000', 0, 'admin', '2021-12-25 10:20:31.703000', 'yes', '', NULL, '<p><strong>测试啊啊啊</strong></p>', '测试新闻', '2021-12-17 00:00:00 - 2022-01-14 00:00:00', 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png', '', '', NULL, NULL, NULL, NULL);
+/*!40000 ALTER TABLE `t_dormitory_news` ENABLE KEYS */;
+
+-- 导出  表 hostel.t_dormitory_order 结构
+DROP TABLE IF EXISTS `t_dormitory_order`;
+CREATE TABLE IF NOT EXISTS `t_dormitory_order` (
+  `id` varchar(255) COLLATE utf8_croatian_ci NOT NULL,
+  `create_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `create_time` datetime(6) DEFAULT NULL,
+  `del_flag` int DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `update_time` datetime(6) DEFAULT NULL,
+  `dormitory_id` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `dormitory_name` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `order_time` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `pay_flag` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `price` decimal(19,2) DEFAULT NULL,
+  `remark` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `user_name` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  `order_date` varchar(255) COLLATE utf8_croatian_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8_croatian_ci;
+
+-- 正在导出表  hostel.t_dormitory_order 的数据：~0 rows (大约)
+DELETE FROM `t_dormitory_order`;
+/*!40000 ALTER TABLE `t_dormitory_order` DISABLE KEYS */;
+INSERT INTO `t_dormitory_order` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `dormitory_id`, `dormitory_name`, `order_time`, `pay_flag`, `price`, `remark`, `user_id`, `user_name`, `order_date`) VALUES
+	('1479326771580112896', 'admin', '2022-01-07 13:39:21.617000', 0, 'admin', '2022-01-07 13:55:56.067000', '1479267940816785409', '1幢101', '2022-01-07 13:39:21', '是', 600.00, '', '682265633886208', '管理员', '2022-01-07');
+/*!40000 ALTER TABLE `t_dormitory_order` ENABLE KEYS */;
+
+-- 导出  表 hostel.t_file 结构
 DROP TABLE IF EXISTS `t_file`;
 CREATE TABLE IF NOT EXISTS `t_file` (
   `id` bigint unsigned NOT NULL,
@@ -169,14 +312,14 @@ CREATE TABLE IF NOT EXISTS `t_file` (
   KEY `create_time` (`create_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_file 的数据：~0 rows (大约)
+-- 正在导出表  hostel.t_file 的数据：~0 rows (大约)
 DELETE FROM `t_file`;
 /*!40000 ALTER TABLE `t_file` DISABLE KEYS */;
 INSERT INTO `t_file` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `name`, `size`, `type`, `url`, `f_key`, `location`) VALUES
 	(1464483838750232576, 'admin', '2021-11-27 14:38:51', 0, 'admin', '2021-11-27 14:38:51', '微信截图_20211127143841.png', 21552, 'image/png', 'C:\\oa-file/20211127/1b74e525e0544a788045f69426d6b093.png', '1b74e525e0544a788045f69426d6b093.png', 0);
 /*!40000 ALTER TABLE `t_file` ENABLE KEYS */;
 
--- 导出  表 template.t_log 结构
+-- 导出  表 hostel.t_log 结构
 DROP TABLE IF EXISTS `t_log`;
 CREATE TABLE IF NOT EXISTS `t_log` (
   `id` bigint unsigned NOT NULL,
@@ -198,7 +341,7 @@ CREATE TABLE IF NOT EXISTS `t_log` (
   KEY `create_time` (`create_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_log 的数据：~41 rows (大约)
+-- 正在导出表  hostel.t_log 的数据：~52 rows (大约)
 DELETE FROM `t_log`;
 /*!40000 ALTER TABLE `t_log` DISABLE KEYS */;
 INSERT INTO `t_log` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `cost_time`, `ip`, `ip_info`, `name`, `request_param`, `request_type`, `request_url`, `username`, `log_type`) VALUES
@@ -251,10 +394,16 @@ INSERT INTO `t_log` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, 
 	(1464825510038212608, NULL, '2021-11-28 13:16:32', 0, NULL, '2021-11-28 13:16:32', 277, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"qqub","saveLogin":"true","captchaId":"eb0b6ee8d5ea4bf7b77e374e71273eba","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
 	(1464825582037635072, NULL, '2021-11-28 13:16:49', 0, NULL, '2021-11-28 13:16:49', 81, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"6spi","saveLogin":"true","captchaId":"b51cc57ccb7945168a872e1506fe2024","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
 	(1474612471053553664, NULL, '2021-12-25 13:26:25', 0, NULL, '2021-12-25 13:26:25', 291, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"UNCK","saveLogin":"true","captchaId":"4c05f9a290444e2ebcf27ca0f65fb8ea","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
-	(1474612508877787136, NULL, '2021-12-25 13:26:34', 0, NULL, '2021-12-25 13:26:34', 86, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"BZMV","saveLogin":"true","captchaId":"414afdb2af8745d6b5020d54ac8aad1c","username":"admin"}', 'POST', '/zwz/login', 'admin', 1);
+	(1474612508877787136, NULL, '2021-12-25 13:26:34', 0, NULL, '2021-12-25 13:26:34', 86, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"BZMV","saveLogin":"true","captchaId":"414afdb2af8745d6b5020d54ac8aad1c","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
+	(1478293541208854529, NULL, '2022-01-04 17:13:40', 0, NULL, '2022-01-04 17:13:40', 83, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"XWFJ","saveLogin":"true","captchaId":"705112b0d7614685aa097b833ec3ad85","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
+	(1479264732551712768, NULL, '2022-01-07 09:32:51', 0, NULL, '2022-01-07 09:32:51', 290, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"SDE5","saveLogin":"true","captchaId":"e1caa8b6b66d41ab90821318ca1c2b38","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
+	(1479264784884043776, NULL, '2022-01-07 09:33:03', 0, NULL, '2022-01-07 09:33:03', 66, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"RTDB","saveLogin":"true","captchaId":"7fb56b0efc2b4168a66156149cae19b6","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
+	(1479320866872496129, NULL, '2022-01-07 13:15:54', 0, NULL, '2022-01-07 13:15:54', 73, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"4KHR","saveLogin":"true","captchaId":"ee927fe53158436a85b2edfd013a3ecb","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
+	(1479333676927029249, NULL, '2022-01-07 14:06:48', 0, NULL, '2022-01-07 14:06:48', 74, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"NWDV","saveLogin":"true","captchaId":"fdf8b184cf47445db6563e0fb2e15a47","username":"admin"}', 'POST', '/zwz/login', 'admin', 1),
+	(1479333818480594944, NULL, '2022-01-07 14:07:22', 0, NULL, '2022-01-07 14:07:22', 74, '127.0.0.1', '未知', '登录系统', '{"password":"你是看不见我的","code":"RRMW","saveLogin":"true","captchaId":"336fe8b03b7d42eeb9ba1400cb25c9ae","username":"admin"}', 'POST', '/zwz/login', 'admin', 1);
 /*!40000 ALTER TABLE `t_log` ENABLE KEYS */;
 
--- 导出  表 template.t_permission 结构
+-- 导出  表 hostel.t_permission 结构
 DROP TABLE IF EXISTS `t_permission`;
 CREATE TABLE IF NOT EXISTS `t_permission` (
   `id` bigint unsigned NOT NULL,
@@ -280,7 +429,7 @@ CREATE TABLE IF NOT EXISTS `t_permission` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_permission 的数据：~50 rows (大约)
+-- 正在导出表  hostel.t_permission 的数据：~54 rows (大约)
 DELETE FROM `t_permission`;
 /*!40000 ALTER TABLE `t_permission` DISABLE KEYS */;
 INSERT INTO `t_permission` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `description`, `name`, `parent_id`, `type`, `sort_order`, `component`, `path`, `title`, `icon`, `level`, `button_type`, `status`, `url`, `show_always`) VALUES
@@ -334,10 +483,19 @@ INSERT INTO `t_permission` (`id`, `create_by`, `create_time`, `del_flag`, `updat
 	(1464485105081913345, 'admin', '2021-11-27 14:43:53', 0, 'admin', '2021-11-27 14:43:53', NULL, 'depTwoMenu', 125909152017944576, 0, 2.00, 'Main', '/depTwoMenu', '部门管理', 'ios-apps', 1, '', 0, NULL, b'1'),
 	(1464485485316542465, 'admin', '2021-11-27 14:45:23', 0, 'admin', '2021-11-27 14:47:05', '', 'fileAdmin', 125909152017944576, 0, 3.00, 'Main', '/fileAdmin', '资源管理', 'md-basketball', 1, '', 0, '', b'1'),
 	(1464486736955576321, 'admin', '2021-11-27 14:50:22', 0, 'admin', '2021-11-27 14:50:22', NULL, 'file-setting', 1464485485316542465, 0, 3.00, 'sys/setting-manage/settingManage', 'file-setting', '文件存储配置', 'ios-settings-outline', 2, '', 0, NULL, b'1'),
-	(1464514283202285568, 'admin', '2021-11-27 16:39:49', 0, 'admin', '2021-11-27 16:39:49', NULL, 'vue-code', 1464485485316542465, 0, 4.00, 'sys/oneJavaVue/tableGenerator', 'vue-code', 'Vue', 'md-analytics', 2, '', 0, NULL, b'1');
+	(1464514283202285568, 'admin', '2021-11-27 16:39:49', 0, 'admin', '2021-11-27 16:39:49', NULL, 'vue-code', 1464485485316542465, 0, 4.00, 'sys/oneJavaVue/tableGenerator', 'vue-code', 'Vue', 'md-analytics', 2, '', 0, NULL, b'1'),
+	(1479265989467181056, 'admin', '2022-01-07 09:37:50', 0, 'admin', '2022-01-07 09:37:50', NULL, 'dormAdmin', NULL, -1, 2.00, NULL, NULL, '民宿管理', 'md-aperture', 0, NULL, 0, NULL, b'1'),
+	(1479266118127456256, 'admin', '2022-01-07 09:38:21', 0, 'admin', '2022-01-07 09:38:21', NULL, 'dormData', 1479265989467181056, 0, 1.00, 'Main', '/dormData', '民宿数据', 'md-at', 1, '', 0, NULL, b'1'),
+	(1479266211366834176, 'admin', '2022-01-07 09:38:43', 0, 'admin', '2022-01-07 09:38:43', NULL, 'dormitory', 1479266118127456256, 0, 1.00, 'dorm/dormitory/index', 'dormitory', '民宿列表', 'md-barcode', 2, '', 0, NULL, b'1'),
+	(1479282661930438656, 'admin', '2022-01-07 10:44:05', 0, 'admin', '2022-01-07 10:44:05', NULL, 'dormitoryDiscuss', 1479265989467181056, 0, 2.00, 'Main', '/dormitoryDiscuss', '民宿评论', 'ios-bonfire', 1, '', 0, NULL, b'1'),
+	(1479282739944493057, 'admin', '2022-01-07 10:44:24', 0, 'admin', '2022-01-07 10:44:24', NULL, 'dormitoryDiscuss', 1479282661930438656, 0, 1.00, 'dorm/dormitoryDiscuss/index', 'dormitoryDiscuss', '民宿评论', 'ios-chatboxes', 2, '', 0, NULL, b'1'),
+	(1479327953153298432, 'admin', '2022-01-07 13:44:03', 0, 'admin', '2022-01-07 13:44:03', NULL, 'dormitoryOrder', 1479265989467181056, 0, 3.00, 'Main', '/dormitoryOrder', '民宿预定', 'ios-archive', 1, '', 0, NULL, b'1'),
+	(1479328010443296768, 'admin', '2022-01-07 13:44:17', 0, 'admin', '2022-01-07 13:44:17', NULL, 'dormitoryOrder', 1479327953153298432, 0, 1.00, 'dorm/dormitoryOrder/index', 'dormitoryOrder', '我的预定', 'ios-archive', 2, '', 0, NULL, b'1'),
+	(1479331260345225216, 'admin', '2022-01-07 13:57:12', 0, 'admin', '2022-01-07 13:57:18', '', 'dormNews', 1479265989467181056, 0, 4.00, 'Main', '/dormNews', '民宿资讯', 'md-basketball', 1, '', 0, '', b'1'),
+	(1479331357078458368, 'admin', '2022-01-07 13:57:35', 0, 'admin', '2022-01-07 13:57:35', NULL, 'dormNews', 1479331260345225216, 0, 1.00, 'dorm/dormNews/index', 'dormNews', '民宿新闻', 'md-briefcase', 2, '', 0, NULL, b'1');
 /*!40000 ALTER TABLE `t_permission` ENABLE KEYS */;
 
--- 导出  表 template.t_role 结构
+-- 导出  表 hostel.t_role 结构
 DROP TABLE IF EXISTS `t_role`;
 CREATE TABLE IF NOT EXISTS `t_role` (
   `id` bigint unsigned NOT NULL,
@@ -353,7 +511,7 @@ CREATE TABLE IF NOT EXISTS `t_role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_role 的数据：~3 rows (大约)
+-- 正在导出表  hostel.t_role 的数据：~2 rows (大约)
 DELETE FROM `t_role`;
 /*!40000 ALTER TABLE `t_role` DISABLE KEYS */;
 INSERT INTO `t_role` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `name`, `del_flag`, `default_role`, `description`, `data_type`) VALUES
@@ -361,7 +519,7 @@ INSERT INTO `t_role` (`id`, `create_by`, `create_time`, `update_by`, `update_tim
 	(496138616573953, '', '2018-05-02 21:40:03', 'admin', '2018-11-01 22:59:48', 'ROLE_USER', 0, b'1', '普通注册用户 路过看看', 0);
 /*!40000 ALTER TABLE `t_role` ENABLE KEYS */;
 
--- 导出  表 template.t_role_permission 结构
+-- 导出  表 hostel.t_role_permission 结构
 DROP TABLE IF EXISTS `t_role_permission`;
 CREATE TABLE IF NOT EXISTS `t_role_permission` (
   `id` bigint unsigned NOT NULL,
@@ -375,64 +533,73 @@ CREATE TABLE IF NOT EXISTS `t_role_permission` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_role_permission 的数据：~51 rows (大约)
+-- 正在导出表  hostel.t_role_permission 的数据：~54 rows (大约)
 DELETE FROM `t_role_permission`;
 /*!40000 ALTER TABLE `t_role_permission` DISABLE KEYS */;
 INSERT INTO `t_role_permission` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `permission_id`, `role_id`) VALUES
-	(1464514325862551552, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 125909152017944576, 496138616573952),
-	(1464514325862551553, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1464484663442673664, 496138616573952),
-	(1464514325862551554, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 5129710648430593, 496138616573952),
-	(1464514325862551555, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 15701400130424832, 496138616573952),
-	(1464514325862551556, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16678126574637056, 496138616573952),
-	(1464514325862551557, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 15701915807518720, 496138616573952),
-	(1464514325862551558, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 15708892205944832, 496138616573952),
-	(1464514325862551559, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16678447719911424, 496138616573952),
-	(1464514325862551560, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 25014528525733888, 496138616573952),
-	(1464514325862551561, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 56898976661639168, 496138616573952),
-	(1464514325862551562, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 156365156580855808, 496138616573952),
-	(1464514325862551563, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1464485105081913345, 496138616573952),
-	(1464514325862551564, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 40238597734928384, 496138616573952),
-	(1464514325862551565, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 45235621697949696, 496138616573952),
-	(1464514325862551566, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 45235787867885568, 496138616573952),
-	(1464514325862551567, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 45235939278065664, 496138616573952),
-	(1464514325862551568, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1464485485316542465, 496138616573952),
-	(1464514325862551569, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 56309618086776832, 496138616573952),
-	(1464514325862551570, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 57212882168844288, 496138616573952),
-	(1464514325862551571, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 61560041605435392, 496138616573952),
-	(1464514325862551572, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 61560275261722624, 496138616573952),
-	(1464514325862551573, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 61560480518377472, 496138616573952),
-	(1464514325862551574, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 75002207560273920, 496138616573952),
-	(1464514325862551575, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 76215889006956544, 496138616573952),
-	(1464514325862551576, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 76216071333351424, 496138616573952),
-	(1464514325862551577, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 76216264070008832, 496138616573952),
-	(1464514325862551578, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 76216459709124608, 496138616573952),
-	(1464514325862551579, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 76216594207870976, 496138616573952),
-	(1464514325862551580, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 76216702639017984, 496138616573952),
-	(1464514325862551581, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1464486736955576321, 496138616573952),
-	(1464514325862551582, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1464514283202285568, 496138616573952),
-	(1464514325862551583, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 5129710648430592, 496138616573952),
-	(1464514325862551584, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 5129710648430594, 496138616573952),
-	(1464514325862551585, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16687383932047360, 496138616573952),
-	(1464514325862551586, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16689632049631232, 496138616573952),
-	(1464514325862551587, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16689745006432256, 496138616573952),
-	(1464514325862551588, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16689883993083904, 496138616573952),
-	(1464514325862551589, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16690313745666048, 496138616573952),
-	(1464514325862551590, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 5129710648430595, 496138616573952),
-	(1464514325862551591, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16694861252005888, 496138616573952),
-	(1464514325862551592, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16695107491205120, 496138616573952),
-	(1464514325862551593, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 16695243126607872, 496138616573952),
-	(1464514325862551594, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 39915540965232640, 496138616573952),
-	(1464514325862551595, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 41363147411427328, 496138616573952),
-	(1464514325862551596, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 41363537456533504, 496138616573952),
-	(1464514325862551597, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 41364927394353152, 496138616573952),
-	(1464514325862551598, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 121426317022334976, 496138616573952),
-	(1464514325862551599, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1255336077691064320, 496138616573952),
-	(1464514325862551600, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1255336361339260928, 496138616573952),
-	(1464514325862551601, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1255336455472025601, 496138616573952),
-	(1464514325862551602, 'admin', '2021-11-27 16:39:59', 0, 'admin', '2021-11-27 16:39:59', 1255336553971060737, 496138616573952);
+	(1479331377672491008, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 125909152017944576, 496138616573952),
+	(1479331377672491009, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1464484663442673664, 496138616573952),
+	(1479331377672491010, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 5129710648430593, 496138616573952),
+	(1479331377672491011, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 15701400130424832, 496138616573952),
+	(1479331377672491012, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16678126574637056, 496138616573952),
+	(1479331377672491013, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 15701915807518720, 496138616573952),
+	(1479331377672491014, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 15708892205944832, 496138616573952),
+	(1479331377672491015, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16678447719911424, 496138616573952),
+	(1479331377672491016, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 25014528525733888, 496138616573952),
+	(1479331377672491017, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 56898976661639168, 496138616573952),
+	(1479331377672491018, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 156365156580855808, 496138616573952),
+	(1479331377672491019, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1464485105081913345, 496138616573952),
+	(1479331377672491020, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 40238597734928384, 496138616573952),
+	(1479331377672491021, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 45235621697949696, 496138616573952),
+	(1479331377672491022, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 45235787867885568, 496138616573952),
+	(1479331377672491023, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 45235939278065664, 496138616573952),
+	(1479331377672491024, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1464485485316542465, 496138616573952),
+	(1479331377672491025, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 56309618086776832, 496138616573952),
+	(1479331377672491026, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 57212882168844288, 496138616573952),
+	(1479331377672491027, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 61560041605435392, 496138616573952),
+	(1479331377672491028, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 61560275261722624, 496138616573952),
+	(1479331377672491029, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 61560480518377472, 496138616573952),
+	(1479331377672491030, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 75002207560273920, 496138616573952),
+	(1479331377672491031, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 76215889006956544, 496138616573952),
+	(1479331377672491032, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 76216071333351424, 496138616573952),
+	(1479331377672491033, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 76216264070008832, 496138616573952),
+	(1479331377672491034, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 76216459709124608, 496138616573952),
+	(1479331377672491035, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 76216594207870976, 496138616573952),
+	(1479331377672491036, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 76216702639017984, 496138616573952),
+	(1479331377672491037, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1464486736955576321, 496138616573952),
+	(1479331377672491038, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1464514283202285568, 496138616573952),
+	(1479331377672491039, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 5129710648430592, 496138616573952),
+	(1479331377672491040, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 5129710648430594, 496138616573952),
+	(1479331377672491041, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16687383932047360, 496138616573952),
+	(1479331377672491042, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16689632049631232, 496138616573952),
+	(1479331377672491043, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16689745006432256, 496138616573952),
+	(1479331377672491044, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16689883993083904, 496138616573952),
+	(1479331377672491045, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16690313745666048, 496138616573952),
+	(1479331377672491046, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 5129710648430595, 496138616573952),
+	(1479331377672491047, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16694861252005888, 496138616573952),
+	(1479331377672491048, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16695107491205120, 496138616573952),
+	(1479331377672491049, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 16695243126607872, 496138616573952),
+	(1479331377672491050, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 39915540965232640, 496138616573952),
+	(1479331377672491051, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 41363147411427328, 496138616573952),
+	(1479331377672491052, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 41363537456533504, 496138616573952),
+	(1479331377672491053, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 41364927394353152, 496138616573952),
+	(1479331377672491054, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 121426317022334976, 496138616573952),
+	(1479331377672491055, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1255336077691064320, 496138616573952),
+	(1479331377672491056, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1255336361339260928, 496138616573952),
+	(1479331377672491057, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1255336455472025601, 496138616573952),
+	(1479331377672491058, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1255336553971060737, 496138616573952),
+	(1479331377672491059, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479265989467181056, 496138616573952),
+	(1479331377672491060, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479266118127456256, 496138616573952),
+	(1479331377672491061, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479266211366834176, 496138616573952),
+	(1479331377672491062, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479282661930438656, 496138616573952),
+	(1479331377672491063, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479282739944493057, 496138616573952),
+	(1479331377672491064, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479327953153298432, 496138616573952),
+	(1479331377672491065, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479328010443296768, 496138616573952),
+	(1479331377672491066, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479331260345225216, 496138616573952),
+	(1479331377672491067, 'admin', '2022-01-07 13:57:40', 0, 'admin', '2022-01-07 13:57:40', 1479331357078458368, 496138616573952);
 /*!40000 ALTER TABLE `t_role_permission` ENABLE KEYS */;
 
--- 导出  表 template.t_setting 结构
+-- 导出  表 hostel.t_setting 结构
 DROP TABLE IF EXISTS `t_setting`;
 CREATE TABLE IF NOT EXISTS `t_setting` (
   `id` varchar(255) NOT NULL,
@@ -445,7 +612,7 @@ CREATE TABLE IF NOT EXISTS `t_setting` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_setting 的数据：~2 rows (大约)
+-- 正在导出表  hostel.t_setting 的数据：~2 rows (大约)
 DELETE FROM `t_setting`;
 /*!40000 ALTER TABLE `t_setting` DISABLE KEYS */;
 INSERT INTO `t_setting` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `value`) VALUES
@@ -453,7 +620,7 @@ INSERT INTO `t_setting` (`id`, `create_by`, `create_time`, `del_flag`, `update_b
 	('OSS_USED', 'admin', '2021-11-27 14:23:13', 0, 'admin', '2021-11-27 14:23:13', 'LOCAL_OSS');
 /*!40000 ALTER TABLE `t_setting` ENABLE KEYS */;
 
--- 导出  表 template.t_user 结构
+-- 导出  表 hostel.t_user 结构
 DROP TABLE IF EXISTS `t_user`;
 CREATE TABLE IF NOT EXISTS `t_user` (
   `id` bigint unsigned NOT NULL,
@@ -485,7 +652,7 @@ CREATE TABLE IF NOT EXISTS `t_user` (
   KEY `create_time` (`create_time`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_user 的数据：~3 rows (大约)
+-- 正在导出表  hostel.t_user 的数据：~3 rows (大约)
 DELETE FROM `t_user`;
 /*!40000 ALTER TABLE `t_user` DISABLE KEYS */;
 INSERT INTO `t_user` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `address`, `avatar`, `description`, `email`, `mobile`, `nickname`, `password`, `sex`, `status`, `type`, `username`, `del_flag`, `department_id`, `street`, `pass_strength`, `department_title`, `birth`) VALUES
@@ -494,7 +661,7 @@ INSERT INTO `t_user` (`id`, `create_by`, `create_time`, `update_by`, `update_tim
 	(1464772465946398721, NULL, '2021-11-28 09:45:45', NULL, '2021-11-28 09:45:45', NULL, 'https://i.loli.net/2019/04/28/5cc5a71a6e3b6.png', NULL, '17859654121@qq.com', '17859654121', '测试2', '$2a$10$vJyLo1RhFORH/SAu3sc9aeb37I5JRy5UugaN7fIt/e2vvsz6JWJCm', NULL, 0, 0, '17859654121', 0, NULL, NULL, NULL, NULL, NULL);
 /*!40000 ALTER TABLE `t_user` ENABLE KEYS */;
 
--- 导出  表 template.t_user_role 结构
+-- 导出  表 hostel.t_user_role 结构
 DROP TABLE IF EXISTS `t_user_role`;
 CREATE TABLE IF NOT EXISTS `t_user_role` (
   `id` bigint unsigned NOT NULL,
@@ -508,7 +675,7 @@ CREATE TABLE IF NOT EXISTS `t_user_role` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
--- 正在导出表  template.t_user_role 的数据：~3 rows (大约)
+-- 正在导出表  hostel.t_user_role 的数据：~3 rows (大约)
 DELETE FROM `t_user_role`;
 /*!40000 ALTER TABLE `t_user_role` DISABLE KEYS */;
 INSERT INTO `t_user_role` (`id`, `create_by`, `create_time`, `del_flag`, `update_by`, `update_time`, `role_id`, `user_id`) VALUES

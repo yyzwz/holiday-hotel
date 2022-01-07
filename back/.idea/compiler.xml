@@ -8,14 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="template" />
-        <module name="back" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="template" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="back" options="-parameters" />
-      <module name="template" options="-parameters" />
+      <module name="template" options="-parameters --add-modules java.base" />
     </option>
   </component>
 </project>

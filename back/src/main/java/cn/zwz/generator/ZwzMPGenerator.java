@@ -31,13 +31,13 @@ public class ZwzMPGenerator {
      * 实体类名
      * 建议仅需修改
      */
-    private static final String className = "Student";
+    private static final String className = "DormitoryNews";
 
     /**
      * 类说明描述
      * 建议仅需修改
      */
-    private static final String description = "测试";
+    private static final String description = "民宿订单";
 
     /**
      * 作者名
@@ -60,31 +60,31 @@ public class ZwzMPGenerator {
      * 实体类对应包
      * (文件自动生成至该包下)
      */
-    private static final String entityPackage = "cn.zwz.modules.your.entity";
+    private static final String entityPackage = "cn.zwz.modules.dorm.entity";
 
     /**
      * dao对应包 【注意修改后需到cn.zwz.config.mybatisplus.MybatisPlusConfig配置你的mapper路径扫描】
      * (文件自动生成至该包下)
      */
-    private static final String daoPackage = "cn.zwz.modules.your.mapper";
+    private static final String daoPackage = "cn.zwz.modules.dorm.mapper";
 
     /**
      * service对应包
      * (文件自动生成至该包下)
      */
-    private static final String servicePackage = "cn.zwz.modules.your.service";
+    private static final String servicePackage = "cn.zwz.modules.dorm.service";
 
     /**
      * serviceImpl对应包
      * (文件自动生成至该包下)
      */
-    private static final String serviceImplPackage = "cn.zwz.modules.your.serviceimpl";
+    private static final String serviceImplPackage = "cn.zwz.modules.dorm.serviceimpl";
 
     /**
      * controller对应包
      * (文件自动生成至该包下)
      */
-    private static final String controllerPackage = "cn.zwz.modules.your.controller";
+    private static final String controllerPackage = "cn.zwz.modules.dorm.controller";
 
     /**
      * 运行该主函数即可生成代码

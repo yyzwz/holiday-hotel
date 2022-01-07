@@ -2,7 +2,7 @@
   <div>
     <Row class="header">
       <img src="../../assets/logo-white.png" width="220px">
-      <div class="description">XXXX管理系统</div>
+      <div class="description">基于Springboot的假日旅社管理系统</div>
     </Row>
   </div>
 </template>
