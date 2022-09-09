@@ -8,16 +8,13 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
+ * SpringBoot启动类
  * @author 郑为中
  */
 @SpringBootApplication
-// 启用JPA审计
 @EnableJpaAuditing
-// 启用缓存
 @EnableCaching
-// 启用异步
 @EnableAsync
-// 启用自带定时任务
 @EnableScheduling
 public class ZwzApplication {
 

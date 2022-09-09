@@ -1,7 +1,10 @@
-/front/dist
-/front/node_modules
-/back/target
-/back/.idea
-/back/out
-/back/work
-/back/logs
+/**/.idea
+/**/work
+/**/asoa-log
+/**/out
+/**/target
+/**/.git
+/**/dist
+/**/log
+/**/logs
+/**/node_modules

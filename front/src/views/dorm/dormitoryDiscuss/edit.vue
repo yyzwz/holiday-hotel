@@ -48,14 +48,13 @@ export default {
     },
     data() {
         return {
-            submitLoading: false, // 表单提交状态
-            form: { // 添加或编辑表单对象初始化数据
+            submitLoading: false, 
+            form: { 
                 dormitoryName: "",
                 discussTime: "",
                 content: "",
                 userName: "",
             },
-            // 表单验证规则
             formValidate: {}
         };
     },
@@ -94,8 +93,6 @@ export default {
 </script>
 
 <style lang="less">
-// 建议引入通用样式 具体路径自行修改 可删除下面样式代码
-// @import "../../../styles/single-common.less";
 .edit-head {
     display: flex;
     align-items: center;

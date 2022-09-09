@@ -28,9 +28,7 @@
                         <Button type="warning" @click="modal1 = true" class="showFilterPanelFlag" icon="ios-help-circle-outline" size="small" ghost>
                             使用教程</Button>
                         <Modal v-model="modal1" title="使用教程">
-                            <p>1.XXXXXXXXXXXXXXXXXXXXXXXX</p>
-                            <p>2.XXXXXXXXXXXXXXXXXXXXXXXX</p>
-                            <p>3.XXXXXXXXXXXXXXXXXXXXXXXX</p>
+                            <p>这里是存放模块说明的地方</p>
                         </Modal>
                     </Form-item>
                 </Form-item>
@@ -92,22 +90,20 @@ export default {
                 "操作",
             ],
             modal1: false,
-            openSearch: true, // 显示搜索
-            openTip: true, // 显示提示
+            openSearch: true,
+            openTip: true,
             formData: {},
-            loading: true, // 表单加载状态
-            searchForm: { // 搜索框初始化对象
-                pageNumber: 1, // 当前页数
-                pageSize: 15, // 页面大小
-                sort: "createTime", // 默认排序字段
-                order: "desc", // 默认排序方式
+            loading: true,
+            searchForm: {
+                pageNumber: 1,
+                pageSize: 15,
+                sort: "createTime",
+                order: "desc",
             },
-            selectList: [], // 多选数据
-            selectCount: 0, // 多选计数
+            selectList: [],
+            selectCount: 0,
             selectRow: 0,
-            columns: [
-                // 表头
-                {
+            columns: [{
                     type: "selection",
                     width: 60,
                     title: "选择",
@@ -215,6 +211,7 @@ export default {
                     key: "action",
                     align: "center",
                     width: 200,
+                    fixed: "right",
                     render: (h, params) => {
                         return h("div", [
                             h(
@@ -224,7 +221,7 @@ export default {
                                         size: "small",
                                         icon: "ios-create-outline",
                                         ghost: true,
-                                        disabled: (params.row.payFlag=="是")
+                                        disabled: (params.row.payFlag == "是")
                                     },
                                     style: {
                                         marginRight: "5px"
@@ -257,10 +254,10 @@ export default {
                     }
                 }
             ],
-            data: [], // 表单数据
-            pageNumber: 1, // 当前页数
-            pageSize: 10, // 页面大小
-            total: 0, // 表单数据总数
+            data: [],
+            pageNumber: 1,
+            pageSize: 10,
+            total: 0,
             showFilterPanelFlag: false,
         };
     },
@@ -322,7 +319,6 @@ export default {
             this.$refs.searchForm.resetFields();
             this.searchForm.pageNumber = 1;
             this.searchForm.pageSize = 15;
-            // 重新加载数据
             this.getDataList();
         },
         changeSort(e) {
@@ -353,11 +349,9 @@ export default {
         remove(v) {
             this.$Modal.confirm({
                 title: "确认删除",
-                // 记得确认修改此处
                 content: "您确认要删除 ?",
                 loading: true,
                 onOk: () => {
-                    // 删除
                     deleteDormitoryOrder({
                         ids: v.id
                     }).then(res => {
@@ -385,7 +379,6 @@ export default {
                         ids += e.id + ",";
                     });
                     ids = ids.substring(0, ids.length - 1);
-                    // 批量删除
                     deleteDormitoryOrder({
                         ids: ids
                     }).then(res => {
@@ -402,7 +395,7 @@ export default {
     },
     mounted() {
         this.init();
-        this.tableHeight = Number(window.innerHeight - 273);
+        this.tableHeight = Number(window.innerHeight - 290);
         this.mycolumns = this.columns;
         let showcolumns = [];
         for (var i = 0; i < this.selected.length; i++) {
@@ -430,7 +423,6 @@ export default {
 </script>
 
 <style lang="less">
-// @import "../../../styles/table-common.less";
 .search {
     .operation {
         margin-bottom: 2vh;
