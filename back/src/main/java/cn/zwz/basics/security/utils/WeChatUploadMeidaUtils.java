@@ -1,6 +1,6 @@
 package cn.zwz.basics.security.utils;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;

@@ -4,7 +4,7 @@ export const loginRouter = {
     path: '/login',
     name: 'login',
     meta: {
-        title: '登录 - 基于Vue和SpringBoot的通用管理系统'
+        title: '登录 - 假日旅社管理系统'
     },
     component: () => import('@/views/login.vue')
 };
@@ -13,7 +13,7 @@ export const registRouter = {
     path: '/regist',
     name: 'regist',
     meta: {
-        title: '注册 - 基于Vue和SpringBoot的通用管理系统'
+        title: '注册 - 假日旅社管理系统'
     },
     component: () => import('@/views/regist.vue')
 };

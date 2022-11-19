@@ -9,7 +9,7 @@ let util = {
 };
 
 util.title = function (title) {
-    title = title || '基于Vue和SpringBoot的通用管理系统';
+    title = title || '假日旅社管理系统';
     window.document.title = title;
 };
 
@@ -440,7 +440,7 @@ util.initRouterNode = function (routers, data) {
         let meta = {};
         // 给页面添加权限、标题、第三方网页链接
         meta.permTypes = menu.permTypes ? menu.permTypes : null;
-        meta.title = menu.title ? menu.title + " - 基于Vue和SpringBoot的通用管理系统" : null;
+        meta.title = menu.title ? menu.title + " - 假日旅社管理系统" : null;
         meta.url = menu.url ? menu.url : null;
         menu.meta = meta;
 
